@@ -1,0 +1,17 @@
+---
+description: Mechigram domain layer — Board, Parser, Solver, pure logic
+globs: core/**/*.go
+alwaysApply: false
+---
+
+# Mechigram — Core
+
+Applies to `core/`. Full role: `ia/roles/domain-engineer.md`.
+
+- No imports of `os`, HTTP, PDF, or `render`
+- Word lengths and indexing use `[]rune(word)`, not byte indices
+- `PlaceWord` returns receipt `[]bool`; `RemoveWord` only clears cells where receipt is true
+- Min slot length is 4 (parser rule — do not lower without ROADMAP change)
+- Solver: inject `*rand.Rand` for shuffle; no global rand in tests
+
+Tests: table-driven, see `ia/standards/testing.md` and `ia/playbooks/write-core-tests/PLAYBOOK.md`.

@@ -1,0 +1,18 @@
+---
+description: Mechigram PDF/HTML output — print layout and Puzzle contract
+globs: render/**/*.go
+alwaysApply: false
+---
+
+# Mechigram — Render
+
+Applies to `render/`. Full role: `ia/roles/render-engineer.md`. Playbook: `ia/playbooks/render-pdf/PLAYBOOK.md`.
+
+- Implement `Renderer` interface; no solver or backtracking logic here
+- Print-first: A4, mm-based layout, large bold sans-serif, high contrast
+- **Puzzle mode:** empty cells even if Board has letters
+- **Solution mode:** show letters
+- Preserve Ñ — embed TTF if built-in font fails
+- Words list: alphabetical, multi-column below grid
+
+Do not hardcode dictionary paths. Consume `Puzzle` from app layer.
