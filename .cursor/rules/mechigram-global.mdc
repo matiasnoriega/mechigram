@@ -1,0 +1,16 @@
+---
+description: Mechigram global context, product constraints, and harness entry point
+alwaysApply: true
+---
+
+# Mechigram — Global
+
+Read `ia/CONTEXT.md` before non-trivial work. Harness index: `ia/README.md`.
+
+**Product:** Printable fill-in crosswords (33 Cruzadas style) for a 90+ user — large type, high contrast, PDF over HTML for print.
+
+**Architecture:** `core/` and solver logic stay I/O-free. No PDF/HTML imports in `core/`. Minimize diff scope.
+
+**Roadmap:** Active work is Iteration 2 — see `ia/ROADMAP.md`. Do not implement batch/concurrency/API unless explicitly requested.
+
+**Quality:** `go test ./...` before finishing. Follow `ia/standards/`.

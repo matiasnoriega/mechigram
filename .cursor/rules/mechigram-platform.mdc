@@ -1,0 +1,16 @@
+---
+description: Mechigram CLI, app composition, and CI
+globs: cmd/**/*.go,internal/**/*.go,.github/**/*
+alwaysApply: false
+---
+
+# Mechigram — Platform
+
+Applies to `cmd/`, `internal/`, CI. Role: `ia/roles/platform-engineer.md`.
+
+- `cmd/mechigram/main.go` only parses flags and calls `app.Generate`
+- Use `fmt.Errorf("...: %w", err)` — no `log.Fatal` outside main
+- Wire `--board`, `--dict`, `--output`, `--seed`, `--format`, `--solution` per ROADMAP
+- Retries with new seed belong in `internal/app`, not in solver
+
+CI must run `go vet ./...`, `go test ./...`, `go build ./cmd/mechigram`.
